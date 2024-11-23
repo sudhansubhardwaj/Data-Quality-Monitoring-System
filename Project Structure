@@ -1,0 +1,25 @@
+data-quality-monitoring/
+│
+├── config/
+│   ├── settings.py        # Configuration settings
+│   ├── database_config.py # Database connection settings
+│
+├── modules/
+│   ├── validator.py       # Validation logic
+│   ├── profiler.py        # Data profiling scripts
+│   ├── alerting.py        # Alerting and notification logic
+│
+├── scripts/
+│   ├── daily_check.py     # Script for daily checks
+│   ├── monitoring.py      # Real-time monitoring script
+│
+├── tests/
+│   ├── test_validator.py  # Unit tests for validation logic
+│   ├── test_profiler.py   # Unit tests for profiling
+│
+├── data/
+│   ├── sample_data.csv    # Sample dataset for testing
+│
+├── requirements.txt       # Dependencies
+├── README.md              # Project documentation
+├── main.py                # Entry point
