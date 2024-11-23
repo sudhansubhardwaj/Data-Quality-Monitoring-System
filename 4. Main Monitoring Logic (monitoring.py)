@@ -1,0 +1,22 @@
+import pandas as pd
+from modules.validator import validate_schema
+from modules.profiler import profile_data
+from modules.alerting import send_alert
+
+# Load data
+data = pd.read_csv('data/sample_data.csv')
+
+# Validate schema
+expected_columns = ['id', 'name', 'value', 'timestamp']
+try:
+    validate_schema(data, expected_columns)
+except ValueError as e:
+    send_alert(str(e), ['admin@example.com'])
+
+# Profile data
+profile_report = profile_data(data)
+print("Profiling Report:", profile_report)
+
+# Check for issues and send alerts
+if profile_report['missing_values']['value'] > 0:
+    send_alert("Missing values detected in 'value' column.", ['admin@example.com'])
